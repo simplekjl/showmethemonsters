@@ -5,6 +5,8 @@ import com.simplekjl.theapp.BuildConfig
 import com.simplekjl.theapp.data.PokemonService
 import com.simplekjl.theapp.data.remote.PokemonRemoteRepository
 import com.simplekjl.theapp.data.remote.PokemonRemoteRepositoryImpl
+import com.simplekjl.theapp.domain.interactors.LoginCompletable
+import com.simplekjl.theapp.domain.interactors.LogoutCompletable
 import com.simplekjl.theapp.domain.interactors.RetrieveAllPokemons
 import com.simplekjl.theapp.domain.mapper.PokemonResponseMapper
 import okhttp3.OkHttpClient
@@ -48,7 +50,9 @@ class PokemonApp : Application() {
         factory<PokemonRemoteRepository> { PokemonRemoteRepositoryImpl(get()) }
         factory { PokemonResponseMapper() }
         // interactors
-        factory<RetrieveAllPokemons> { RetrieveAllPokemons(get(), get()) }
+        factory { RetrieveAllPokemons(get(), get()) }
+        factory { LogoutCompletable(get()) }
+        factory { LoginCompletable(get()) }
     }
 
     override fun onCreate() {
