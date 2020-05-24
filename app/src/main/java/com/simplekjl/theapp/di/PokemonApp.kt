@@ -5,6 +5,8 @@ import com.simplekjl.theapp.BuildConfig
 import com.simplekjl.theapp.data.PokemonService
 import com.simplekjl.theapp.data.remote.PokemonRemoteRepository
 import com.simplekjl.theapp.data.remote.PokemonRemoteRepositoryImpl
+import com.simplekjl.theapp.domain.interactors.RetrieveAllPokemons
+import com.simplekjl.theapp.domain.mapper.PokemonResponseMapper
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -20,7 +22,7 @@ import java.util.concurrent.TimeUnit
 // Created by simplekjl on 5/24/20.
 //
 
-class PokemonApp : Application(){
+class PokemonApp : Application() {
     val appModule = module {
         single<Retrofit> {
             val builder = OkHttpClient().newBuilder()
@@ -44,6 +46,9 @@ class PokemonApp : Application(){
         }
         single<PokemonService> { get<Retrofit>().create(PokemonService::class.java) }
         factory<PokemonRemoteRepository> { PokemonRemoteRepositoryImpl(get()) }
+        factory { PokemonResponseMapper() }
+        // interactors
+        factory<RetrieveAllPokemons> { RetrieveAllPokemons(get(), get()) }
     }
 
     override fun onCreate() {
