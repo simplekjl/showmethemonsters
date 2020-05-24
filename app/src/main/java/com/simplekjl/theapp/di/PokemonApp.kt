@@ -9,10 +9,13 @@ import com.simplekjl.theapp.domain.interactors.LoginCompletable
 import com.simplekjl.theapp.domain.interactors.LogoutCompletable
 import com.simplekjl.theapp.domain.interactors.RetrieveAllPokemons
 import com.simplekjl.theapp.domain.mapper.PokemonResponseMapper
+import com.simplekjl.theapp.presentation.login.LoginViewModel
+import com.simplekjl.theapp.presentation.pokemonlist.PokemonListViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -53,6 +56,9 @@ class PokemonApp : Application() {
         factory { RetrieveAllPokemons(get(), get()) }
         factory { LogoutCompletable(get()) }
         factory { LoginCompletable(get()) }
+        // view models
+        viewModel { LoginViewModel(get()) }
+        viewModel { PokemonListViewModel(get()) }
     }
 
     override fun onCreate() {
