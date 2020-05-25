@@ -4,4 +4,8 @@
     <string name="login_username_ed">Username</string>
     <string name="login_password_et">Password</string>
     <string name="login_login_btn_text">Login</string>
+    <!--    Errors login form       -->
+    <string name="email_error">Please enter a valid email</string>
+    <string name="password_error">Please enter a valid password</string>
+    <string name="general_error_msg">There has been an error, please try again.</string>
 </resources>

@@ -18,9 +18,9 @@ class PokemonDomainRepositoryImpl(
     private val logoutCompletable: LogoutCompletable
 ) :
     PokemonDomainRepository {
-    override fun login(): Completable = loginCompletable.login()
+    override fun login(): Observable<Any> = loginCompletable.login()
 
-    override fun logout(): Completable = logoutCompletable.logout()
+    override fun logout(): Observable<Any> = logoutCompletable.logout()
 
     override fun getAllPokemon(pagination: Pagination): Observable<List<PokemonDetails>> =
         retrieveAllPokemons.getAllPokemons(pagination)

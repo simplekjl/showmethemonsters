@@ -2,7 +2,6 @@ package com.simplekjl.theapp.domain
 
 import com.simplekjl.theapp.domain.model.Pagination
 import com.simplekjl.theapp.domain.model.PokemonDetails
-import io.reactivex.Completable
 import io.reactivex.Observable
 
 //
@@ -10,7 +9,7 @@ import io.reactivex.Observable
 //
 
 interface PokemonDomainRepository {
-    fun login(): Completable // fake login
-    fun logout(): Completable // delete fake data
+    fun login(): Observable<Any> // fake login
+    fun logout(): Observable<Any> // delete fake data
     fun getAllPokemon(pagination: Pagination): Observable<List<PokemonDetails>>
 }

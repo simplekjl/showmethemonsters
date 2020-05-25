@@ -5,6 +5,8 @@ import com.simplekjl.theapp.BuildConfig
 import com.simplekjl.theapp.data.PokemonService
 import com.simplekjl.theapp.data.remote.PokemonRemoteRepository
 import com.simplekjl.theapp.data.remote.PokemonRemoteRepositoryImpl
+import com.simplekjl.theapp.domain.PokemonDomainRepository
+import com.simplekjl.theapp.domain.PokemonDomainRepositoryImpl
 import com.simplekjl.theapp.domain.interactors.LoginCompletable
 import com.simplekjl.theapp.domain.interactors.LogoutCompletable
 import com.simplekjl.theapp.domain.interactors.RetrieveAllPokemons
@@ -54,8 +56,10 @@ class PokemonApp : Application() {
         factory { PokemonResponseMapper() }
         // interactors
         factory { RetrieveAllPokemons(get(), get()) }
-        factory { LogoutCompletable(get()) }
         factory { LoginCompletable(get()) }
+        factory { LogoutCompletable(get()) }
+        // repository for pokemons
+        factory<PokemonDomainRepository> { PokemonDomainRepositoryImpl(get(),get(),get()) }
         // view models
         viewModel { LoginViewModel(get()) }
         viewModel { PokemonListViewModel(get()) }
