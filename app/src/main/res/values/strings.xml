@@ -10,4 +10,8 @@
     <string name="general_error_msg">There has been an error, please try again.</string>
     <string name="pokemon_list_title">Pokemon inventory</string>
     <string name="logout_menu_action">Logout</string>
+    <string name="name_label">Name:</string>
+    <string name="sorry_error">Sorry, there might be some problems.</string>
+    <string name="retry_button_text">Retry</string>
+    <string name="home_title">Pokemon List</string>
 </resources>

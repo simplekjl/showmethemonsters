@@ -11,5 +11,5 @@ import io.reactivex.Observable
 interface PokemonDomainRepository {
     fun login(): Observable<Any> // fake login
     fun logout(): Observable<Any> // delete fake data
-    fun getAllPokemon(pagination: Pagination): Observable<List<PokemonDetails>>
+    fun getAllPokemon(pagination: Pagination): Observable<Pair<Int,List<PokemonDetails>>>
 }

@@ -42,7 +42,7 @@ class LoginViewModel(private val repository: PokemonDomainRepository) : ViewMode
         compositeDisposable.add(
             repository
                 .login()
-                .delay(5, TimeUnit.SECONDS)
+                .delay(2, TimeUnit.SECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.computation()).subscribe(
                     { _loginUiState.value = LoginUiState.Success },

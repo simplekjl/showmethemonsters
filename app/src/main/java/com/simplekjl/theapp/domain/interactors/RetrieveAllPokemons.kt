@@ -13,7 +13,7 @@ class RetrieveAllPokemons(
     private val repository: PokemonRemoteRepository,
     private val mapper: PokemonResponseMapper
 ) {
-    fun getAllPokemons(pagination: Pagination): Observable<List<PokemonDetails>> =
+    fun getAllPokemons(pagination: Pagination): Observable<Pair<Int,List<PokemonDetails>>> =
         repository.getPokemonListFromNetwork(pagination.offset, pagination.limit)
-            .map { mapper.mapRawListToDomain(it.results) }
+            .map { Pair(it.count,mapper.mapRawListToDomain(it.results)) }
 }

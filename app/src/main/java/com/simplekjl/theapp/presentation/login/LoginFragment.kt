@@ -17,7 +17,6 @@ import androidx.lifecycle.Observer
 import com.simplekjl.theapp.R
 import com.simplekjl.theapp.presentation.pokemonlist.PokemonListFragment
 import com.simplekjl.theapp.presentation.preferences.SharePreferencesHelper
-import kotlinx.android.synthetic.main.login_activity.*
 import kotlinx.android.synthetic.main.login_fragment.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -32,6 +31,11 @@ class LoginFragment : Fragment() {
 
     private val mPref: SharePreferencesHelper by inject()
     private val viewModel: LoginViewModel by viewModel()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(false)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -93,6 +97,7 @@ class LoginFragment : Fragment() {
         hideKeyboardFrom(context, view)
         val email: String = etUsername.text.toString()
         val password: String = etPassword.text.toString()
+        loginBtn.isEnabled = false
         viewModel.login(email, password)
     }
 
@@ -140,14 +145,13 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun saveFakeToken(){
+    private fun saveFakeToken() {
         mPref.setAccessToken("token")
         mPref.setUserLoginStatus(true)
     }
 
     private fun navigateToHome() {
         // navigate to the next screen we can improve this having activity on Result or jetpack components
-        my_toolbar.isVisible = true
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(R.id.container, PokemonListFragment.newInstance())
             ?.commitNow()

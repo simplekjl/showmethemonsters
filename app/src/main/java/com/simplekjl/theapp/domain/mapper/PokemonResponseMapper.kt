@@ -23,9 +23,9 @@ class PokemonResponseMapper {
      */
     private fun safeStringMapping(value: String): String {
         return if (value.isNullOrBlank()) {
-            value
+            " " // empty string
         } else {
-            " " //empty string
+            value
         }
     }
 }

@@ -22,6 +22,6 @@ class PokemonDomainRepositoryImpl(
 
     override fun logout(): Observable<Any> = logoutCompletable.logout()
 
-    override fun getAllPokemon(pagination: Pagination): Observable<List<PokemonDetails>> =
+    override fun getAllPokemon(pagination: Pagination): Observable<Pair<Int,List<PokemonDetails>>> =
         retrieveAllPokemons.getAllPokemons(pagination)
 }

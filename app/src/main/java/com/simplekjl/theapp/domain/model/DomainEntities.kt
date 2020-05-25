@@ -1,8 +1,5 @@
 package com.simplekjl.theapp.domain.model
 
-//
-// Created by  on 5/24/20.
-//
 /**
  * Pokemon model domain response
  */
