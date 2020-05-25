@@ -1,5 +1,5 @@
 # Show me some Monsters
-Let's read some news from  https://pokeapi.co/
+Fetching pokemon data from  https://pokeapi.co/
 
 # Libraries used 
 - Koin for Dependency Injection 
