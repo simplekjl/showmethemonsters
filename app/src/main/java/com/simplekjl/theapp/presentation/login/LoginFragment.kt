@@ -17,6 +17,7 @@ import androidx.lifecycle.Observer
 import com.simplekjl.theapp.R
 import com.simplekjl.theapp.presentation.pokemonlist.PokemonListFragment
 import com.simplekjl.theapp.presentation.preferences.SharePreferencesHelper
+import kotlinx.android.synthetic.main.login_activity.*
 import kotlinx.android.synthetic.main.login_fragment.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -146,6 +147,7 @@ class LoginFragment : Fragment() {
 
     private fun navigateToHome() {
         // navigate to the next screen we can improve this having activity on Result or jetpack components
+        my_toolbar.isVisible = true
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(R.id.container, PokemonListFragment.newInstance())
             ?.commitNow()

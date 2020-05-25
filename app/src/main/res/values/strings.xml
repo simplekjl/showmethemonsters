@@ -8,4 +8,6 @@
     <string name="email_error">Please enter a valid email</string>
     <string name="password_error">Please enter a valid password</string>
     <string name="general_error_msg">There has been an error, please try again.</string>
+    <string name="pokemon_list_title">Pokemon inventory</string>
+    <string name="logout_menu_action">Logout</string>
 </resources>

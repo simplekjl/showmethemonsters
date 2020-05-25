@@ -7,4 +7,6 @@ class PokemonListViewModel(
     private val repository: PokemonDomainRepository
 ) : ViewModel() {
 
+
+
 }
