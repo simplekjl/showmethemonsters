@@ -16,7 +16,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.simplekjl.theapp.R
 import com.simplekjl.theapp.presentation.pokemonlist.PokemonListFragment
+import com.simplekjl.theapp.presentation.preferences.SharePreferencesHelper
 import kotlinx.android.synthetic.main.login_fragment.*
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -27,6 +29,7 @@ class LoginFragment : Fragment() {
             LoginFragment()
     }
 
+    private val mPref: SharePreferencesHelper by inject()
     private val viewModel: LoginViewModel by viewModel()
 
     override fun onCreateView(
@@ -129,10 +132,16 @@ class LoginFragment : Fragment() {
                 showError()
             }
             LoginUiState.Success -> {
+                saveFakeToken()
                 navigateToHome()
             }
 
         }
+    }
+
+    private fun saveFakeToken(){
+        mPref.setAccessToken("token")
+        mPref.setUserLoginStatus(true)
     }
 
     private fun navigateToHome() {

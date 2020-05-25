@@ -13,6 +13,7 @@ import com.simplekjl.theapp.domain.interactors.RetrieveAllPokemons
 import com.simplekjl.theapp.domain.mapper.PokemonResponseMapper
 import com.simplekjl.theapp.presentation.login.LoginViewModel
 import com.simplekjl.theapp.presentation.pokemonlist.PokemonListViewModel
+import com.simplekjl.theapp.presentation.preferences.SharePreferencesHelper
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -59,7 +60,8 @@ class PokemonApp : Application() {
         factory { LoginCompletable(get()) }
         factory { LogoutCompletable(get()) }
         // repository for pokemons
-        factory<PokemonDomainRepository> { PokemonDomainRepositoryImpl(get(),get(),get()) }
+        factory<PokemonDomainRepository> { PokemonDomainRepositoryImpl(get(), get(), get()) }
+        factory { SharePreferencesHelper(androidContext(), "app_shared_pref") }
         // view models
         viewModel { LoginViewModel(get()) }
         viewModel { PokemonListViewModel(get()) }
