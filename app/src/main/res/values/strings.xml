@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TheApp</string>
+    <string name="login_header_text">Welcome \n to \n Pokemon Inventory</string>
+    <string name="login_username_ed">Username</string>
+    <string name="login_password_et">Password</string>
+    <string name="login_login_btn_text">Login</string>
 </resources>

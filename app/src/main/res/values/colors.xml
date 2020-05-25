@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#B7B7B7</color>
-    <color name="primaryDark">#868585</color>
-    <color name="primaryLight">#FFFFFF</color>
-    <color name="accentColor">#C9B91E52</color>
+    <color name="primary">#c7a008</color>
+    <color name="primaryDark">#3c5aa6</color>
+    <color name="primaryLight">#2a75bb</color>
+    <color name="accentColor">#ffcb05</color>
     <color name="primaryText">#190B4D</color>
     <color name="secondaryText">#4F4E4E</color>
+
+    <!--    Pokemon colors   -->
+    <color name="pokemonYellow">#ffcb05</color>
+    <color name="pokemonLightBlue">#2a75bb</color>
 </resources>
